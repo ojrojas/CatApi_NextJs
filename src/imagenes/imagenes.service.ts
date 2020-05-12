@@ -18,14 +18,16 @@ export class ImagenesService {
     }
 
     async createImagenFavorita(imagenDto: ImagenesDto): Promise<IImagenes> {
-        return await this.imagenModel.create(imagenDto);
+        return await (await this.imagenModel.create(imagenDto));
+    }
+
+    async DeleteImagenFavorita(id: string): Promise<any> {
+        return await this.imagenModel.deleteOne({"id":id}, (err) => {
+            if(err) throw err;
+        });
     }
 
     async getImagenesFavoritas(): Promise<IImagenes[]> {
         return await this.imagenModel.find({favorita : true});
     }
-  
-
-
-
 }
