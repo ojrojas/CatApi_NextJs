@@ -1,4 +1,4 @@
-import { Controller, Get, Res, Post, Body, Req, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Res, Post, Body, Req, Param, Delete, HttpStatus } from '@nestjs/common';
 import { ImagenesService } from './imagenes.service';
 
 @Controller('imagenes')
@@ -6,7 +6,9 @@ export class ImagenesController {
     constructor(private imagenesService: ImagenesService) { }
 
     @Get('/')
-    getImagenes(@Res() res) {
+    async getImagenes(@Res() res) {
+        const imagenes = await this.imagenesService.getImagenesFavoritas();
+        return res.status(HttpStatus.OK).json(imagenes);
 
     }
 

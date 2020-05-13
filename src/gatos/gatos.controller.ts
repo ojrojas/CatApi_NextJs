@@ -12,10 +12,7 @@ export class GatosController {
     @Get('/')
     async getGatos(@Res() res) {
         const gatos = await this.gatoService.getGatos();
-        return res.status(HttpStatus.OK).json({
-            message: 'Lista gatos',
-            gatos
-        });
+        return res.status(HttpStatus.OK).json(gatos);
     };
 
     @Get('/:id')
@@ -38,7 +35,7 @@ export class GatosController {
     } 
 
     @Put('/:id')
-    async updateGato(@Res() res, @Param('id') id, @Body() gatodto : GatoDto){
+    async updateGato(@Res() res,@Param('id') id, @Body() gatodto : GatoDto){
         const gato = await this.gatoService.updateGato(id,gatodto);
         if(!gato) throw new NotFoundException("El gato no existe");
         return res.status(HttpStatus.OK).json({

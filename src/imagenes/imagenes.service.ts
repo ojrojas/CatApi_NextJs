@@ -18,7 +18,7 @@ export class ImagenesService {
     }
 
     async createImagenFavorita(imagenDto: ImagenesDto): Promise<IImagenes> {
-        return await (await this.imagenModel.create(imagenDto));
+        return await this.imagenModel.create(imagenDto);
     }
 
     async DeleteImagenFavorita(id: string): Promise<any> {
