@@ -8,7 +8,6 @@ export class GatosController {
 
     constructor(private gatoService: GatosService){}
 
-
     @Get('/')
     async getGatos(@Res() res) {
         const gatos = await this.gatoService.getGatos();
@@ -18,9 +17,9 @@ export class GatosController {
     @Get('/:id')
     async getGato(@Res() res, @Param('id') id: string): Promise<IGato> {
        const gato = await  this.gatoService.getGato(id);
+       console.log("traido" ,gato);
        if(!gato) throw new NotFoundException("El gato no existe");
         return res.status(HttpStatus.OK).json({
-            message: 'Gato obtenido', 
             gato
         })
     } 
