@@ -1,10 +1,7 @@
-import {Schema} from 'mongoose'
-
+import { Schema } from 'mongoose';
 
 export const ImagenesSchema = new Schema({
-    favorita:{type:Boolean , required :false },
-    id:{type:String , required :true },
-    url:{type:String , required :true },
-  
-})
-
+  favorita: { type: Boolean, required: false },
+  id: { type: String, required: true },
+  url: { type: String, required: true },
+});

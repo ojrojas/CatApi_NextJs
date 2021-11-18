@@ -5,16 +5,16 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ImagenesSchema } from './schema/imagenes.schema';
 
 @Module({
-  imports:[HttpModule,
+  imports: [
+    HttpModule,
     MongooseModule.forFeature([
       {
-        name:'imagenes',
-        schema : ImagenesSchema
-      } 
-    ])
-    
+        name: 'imagenes',
+        schema: ImagenesSchema,
+      },
+    ]),
   ],
   controllers: [ImagenesController],
-  providers: [ImagenesService]
+  providers: [ImagenesService],
 })
 export class ImagenesModule {}

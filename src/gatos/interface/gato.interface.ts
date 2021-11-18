@@ -1,9 +1,9 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
-export interface IGato extends Document{
-    id:string;
-    nombre:string;
-    raza:string;
-    edad:number;
-    foto: string;
+export interface IGato extends Document {
+  id: string;
+  nombre: string;
+  raza: string;
+  edad: number;
+  foto: string;
 }

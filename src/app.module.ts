@@ -7,13 +7,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    ImagenesModule, 
+    ImagenesModule,
     GatosModule,
-    MongooseModule.forRoot(
-      'mongodb://localhost/c360-test',
-      {
-        ueFindAndModify :false
-      })
+    MongooseModule.forRoot('mongodb://localhost/c360-test', {
+      ueFindAndModify: false,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
