@@ -1,12 +1,12 @@
-import { Module, HttpModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ImagenesController } from './imagenes.controller';
 import { ImagenesService } from './imagenes.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ImagenesSchema } from './schema/imagenes.schema';
+import { HttpService } from './httpservices.service';
 
 @Module({
   imports: [
-    HttpModule,
     MongooseModule.forFeature([
       {
         name: 'imagenes',
@@ -15,6 +15,6 @@ import { ImagenesSchema } from './schema/imagenes.schema';
     ]),
   ],
   controllers: [ImagenesController],
-  providers: [ImagenesService],
+  providers: [ImagenesService, HttpService],
 })
 export class ImagenesModule {}
